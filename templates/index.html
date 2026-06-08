@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TasteLab | 영화 추천</title>
+  <link rel="stylesheet" href="/static/style_v13_left_clean.css?v=26" />
+</head>
+<body data-page="movies">
+  <div class="aurora aurora-a"></div>
+  <div class="aurora aurora-b"></div>
+  <div class="aurora aurora-c"></div>
+
+  <header class="site-header">
+    <nav class="top-nav">
+      <a class="brand" href="/">
+        <span class="brand-mark">T</span>
+        <span>TasteLab</span>
+      </a>
+      <div class="nav-links">
+        <a class="active" href="/">영화 추천</a>
+        <a href="/music">음악 추천</a>
+      </div>
+    </nav>
+
+    <section class="basis-banner">
+      <span class="eyebrow">Movie Recommendation</span>
+      <h1>추천 기준</h1>
+      <p>장르 · 좋아하는 영화 · 감독 · 배우 · 평점 · 유사 취향 조합을 기준으로 추천합니다.</p>
+    </section>
+  </header>
+
+  <main class="app-shell">
+    <aside id="tastePanel" class="glass input-panel">
+      <div class="panel-head">
+        <div>
+          <span class="mini-label">Taste Table</span>
+          <h2>영화 취향 입력표</h2>
+        </div>
+        <button id="clearBtn" class="tiny-btn" type="button">초기화</button>
+      </div>
+
+      <div class="taste-scroll">
+      <table class="taste-table">
+        <tbody>
+          <tr>
+            <th>좋아하는 장르</th>
+            <td>
+              <div id="genreButtons" class="genre-buttons"></div>
+              <div id="genresChips" class="chip-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>좋아하는 영화</th>
+            <td>
+              <div class="input-line">
+                <div class="autocomplete-wrap"><input id="movieInput" list="movieList" autocomplete="off" placeholder="예: 인셉션, Inception" /><div id="movieSuggest" class="suggestions"></div></div>
+                <button id="addMovieBtn" type="button">추가</button>
+              </div>
+              <datalist id="movieList"></datalist>
+              <div id="likeMoviesChips" class="chip-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>좋아하는 감독</th>
+            <td>
+              <div class="input-line">
+                <div class="autocomplete-wrap"><input id="directorInput" list="directorList" autocomplete="off" placeholder="예: 봉준호, Christopher Nolan" /><div id="directorSuggest" class="suggestions"></div></div>
+                <button id="addDirectorBtn" type="button">추가</button>
+              </div>
+              <datalist id="directorList"></datalist>
+              <div id="directorsChips" class="chip-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>좋아하는 배우</th>
+            <td>
+              <div class="input-line">
+                <div class="autocomplete-wrap"><input id="actorInput" list="actorList" autocomplete="off" placeholder="예: 송강호, Leonardo DiCaprio" /><div id="actorSuggest" class="suggestions"></div></div>
+                <button id="addActorBtn" type="button">추가</button>
+              </div>
+              <datalist id="actorList"></datalist>
+              <div id="actorsChips" class="chip-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>추천 조건</th>
+            <td>
+              <div class="condition-grid">
+                <label>최소 평점<input id="min_score" type="number" min="0" max="10" step="0.1" value="6.5" /></label>
+                <label>추천 개수<input id="top_n" type="number" min="1" max="12" value="8" /></label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="button-stack">
+        <button id="recommendBtn" class="main-btn" type="button">영화 추천받기</button>
+        <button id="retryBtn" class="alt-btn" type="button">다른 영화 다시 추천</button>
+        <button id="resetBtn" class="ghost-btn" type="button">추천 기록 초기화</button>
+      </div>
+      <p class="hint">입력 후 Enter 또는 추가 버튼을 누르면 선택값으로 저장됩니다.</p>
+    </aside>
+
+    <section class="content-area">
+      <div id="status" class="status glass">선택 목록을 불러오는 중입니다.</div>
+      <div id="summary" class="summary hidden"></div>
+      <div id="results" class="movie-grid"></div>
+    </section>
+  </main>
+
+  <script src="/static/app_v13_left_clean.js?v=23"></script>
+  <script src="/static/floating_ai_v14.js?v=7"></script>
+</body>
+</html>

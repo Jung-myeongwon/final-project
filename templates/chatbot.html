@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TasteLab | AI 영화 챗봇</title>
+  <link rel="stylesheet" href="/static/style_v13_left_clean.css?v=17" />
+</head>
+<body class="chatbot-page">
+  <div class="aurora aurora-a"></div>
+  <div class="aurora aurora-b"></div>
+  <div class="aurora aurora-c"></div>
+
+  <header class="site-header">
+    <nav class="top-nav">
+      <a class="brand" href="/">
+        <span class="brand-mark">T</span>
+        <span>TasteLab</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">영화 추천</a>
+        <a href="/music">음악 추천</a>
+        <a class="active" href="/chatbot">AI 챗봇</a>
+      </div>
+    </nav>
+
+    <section class="basis-banner chatbot-banner">
+      <span class="eyebrow">Movie Chatbot</span>
+      <h1>AI 영화 추천 챗봇</h1>
+      <p>장르, 좋아하는 영화, 감독·배우를 대화로 알려주시면 TasteLab이 취향을 분석해 맞춤 영화를 추천합니다.</p>
+    </section>
+  </header>
+
+  <main class="chatbot-shell">
+    <section class="chat-panel glass" aria-label="영화 추천 챗봇">
+      <div class="chat-panel-head">
+        <div>
+          <span class="mini-label">Live Assistant</span>
+          <h2>TasteLab AI</h2>
+        </div>
+        <div class="chat-panel-actions">
+          <span id="sessionBadge" class="session-badge" title="세션 ID">세션 준비 중</span>
+          <button id="resetChatBtn" class="tiny-btn" type="button">대화 초기화</button>
+        </div>
+      </div>
+
+      <div id="chatMessages" class="chat-messages" role="log" aria-live="polite" aria-relevant="additions">
+        <div class="chat-row bot">
+          <div class="chat-avatar" aria-hidden="true">AI</div>
+          <div class="chat-bubble bot">
+            <p>안녕하세요! 무엇이든 입력해 주세요. 인사·질문에 답하고, 장르·영화·감독·배우 취향을 알려주시면 맞춤 영화를 추천해 드립니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="chatTyping" class="chat-typing hidden" aria-hidden="true">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span>취향 분석 중…</span>
+      </div>
+
+      <form id="chatForm" class="chat-compose" autocomplete="off">
+        <label class="sr-only" for="chatInput">메시지 입력</label>
+        <textarea
+          id="chatInput"
+          rows="1"
+          placeholder="예: SF 좋아해, 인터스텔라도 좋아했어. 영화 추천해줘"
+          maxlength="2000"
+          required
+        ></textarea>
+        <button id="sendBtn" class="main-btn chat-send-btn" type="submit" aria-label="메시지 보내기">
+          <span class="send-label">전송</span>
+        </button>
+      </form>
+      <p class="chat-hint">Enter로 전송 · Shift+Enter 줄바꿈 · 「초기화」 또는 「리셋」으로 취향 기록 삭제</p>
+    </section>
+  </main>
+
+  <script src="/static/chatbot_v13.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TasteLab | 음악 추천</title>
+  <link rel="stylesheet" href="/static/style_v13_left_clean.css?v=26" />
+</head>
+<body data-page="music">
+  <div class="aurora aurora-a"></div>
+  <div class="aurora aurora-b"></div>
+  <div class="aurora aurora-c"></div>
+
+  <header class="site-header">
+    <nav class="top-nav">
+      <a class="brand" href="/">
+        <span class="brand-mark">T</span>
+        <span>TasteLab</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">영화 추천</a>
+        <a class="active" href="/music">음악 추천</a>
+      </div>
+    </nav>
+
+    <section class="basis-banner">
+      <span class="eyebrow">Music Recommendation</span>
+      <h1>추천 기준</h1>
+      <p>장르 · 아티스트 · 노래 · 앨범 · 유사 청취 패턴을 기준으로 새로운 음악을 추천합니다.</p>
+    </section>
+  </header>
+
+  <main class="app-shell music-shell">
+    <aside id="musicPanel" class="glass input-panel">
+      <div class="panel-head">
+        <div>
+          <span class="mini-label">Music Taste Table</span>
+          <h2>음악 취향 입력표</h2>
+        </div>
+        <button id="musicClearBtn" class="tiny-btn" type="button">초기화</button>
+      </div>
+
+      <div class="taste-scroll">
+      <table class="taste-table">
+        <tbody>
+          <tr>
+            <th>좋아하는 장르</th>
+            <td>
+              <div id="musicGenreButtons" class="genre-buttons"></div>
+              <div class="input-line compact">
+                <div class="autocomplete-wrap"><input id="musicGenreInput" list="musicGenreList" autocomplete="off" placeholder="예: 케이팝, 재즈, 로파이" /><div id="musicGenreSuggest" class="suggestions"></div></div>
+                <button id="addMusicGenreBtn" type="button">추가</button>
+              </div>
+              <datalist id="musicGenreList"></datalist>
+              <div id="musicGenresChips" class="chip-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>좋아하는 아티스트</th>
+            <td>
+              <div class="input-line">
+                <div class="autocomplete-wrap"><input id="artistInput" autocomplete="off" placeholder="예: NewJeans, 아이유, The Weeknd" /><div id="artistSuggest" class="suggestions"></div></div>
+                <button id="addArtistBtn" type="button">추가</button>
+              </div>
+              <div id="artistsChips" class="chip-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>좋아하는 노래</th>
+            <td>
+              <div class="input-line">
+                <div class="autocomplete-wrap"><input id="trackInput" autocomplete="off" placeholder="예: Ditto, 밤편지, Blinding Lights" /><div id="trackSuggest" class="suggestions"></div></div>
+                <button id="addTrackBtn" type="button">추가</button>
+              </div>
+              <div id="tracksChips" class="chip-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>좋아하는 앨범</th>
+            <td>
+              <div class="input-line">
+                <div class="autocomplete-wrap"><input id="albumInput" autocomplete="off" placeholder="예: Get Up, Palette, After Hours" /><div id="albumSuggest" class="suggestions"></div></div>
+                <button id="addAlbumBtn" type="button">추가</button>
+              </div>
+              <div id="albumsChips" class="chip-box"></div>
+            </td>
+          </tr>
+          <tr>
+            <th>추천 조건</th>
+            <td>
+              <div class="condition-grid one">
+                <label>추천 개수<input id="musicTopN" type="number" min="1" max="24" value="12" /></label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="button-stack">
+        <button id="musicRecommendBtn" class="main-btn" type="button">음악 추천받기</button>
+        <button id="musicRetryBtn" class="alt-btn" type="button">다른 음악 다시 추천</button>
+      </div>
+    </aside>
+
+    <section class="content-area">
+      <div id="musicStatus" class="status glass">음악 취향을 입력하고 추천받기를 눌러주세요.</div>
+      <div id="musicSummary" class="summary hidden"></div>
+      <div id="musicResults" class="music-result-grid"></div>
+    </section>
+  </main>
+
+  <script src="/static/music_v13_left_clean.js?v=23"></script>
+  <script src="/static/floating_ai_v14.js?v=7"></script>
+</body>
+</html>
